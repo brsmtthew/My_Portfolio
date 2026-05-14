@@ -1,0 +1,31 @@
+<svg width="1200" height="760" viewBox="0 0 1200 760" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Portfolio workspace preview</title>
+  <desc id="desc">A clean interface composition with project cards, metrics, and code panels.</desc>
+  <rect width="1200" height="760" fill="#F6F1E8"/>
+  <rect x="86" y="76" width="1028" height="608" rx="28" fill="#16201D"/>
+  <rect x="126" y="124" width="948" height="70" rx="16" fill="#23312C"/>
+  <circle cx="164" cy="159" r="9" fill="#E85D4F"/>
+  <circle cx="194" cy="159" r="9" fill="#F0B849"/>
+  <circle cx="224" cy="159" r="9" fill="#4EA678"/>
+  <rect x="706" y="145" width="310" height="18" rx="9" fill="#D8EFE3"/>
+  <rect x="146" y="236" width="360" height="296" rx="22" fill="#FDF9F0"/>
+  <rect x="178" y="272" width="224" height="22" rx="11" fill="#16201D"/>
+  <rect x="178" y="318" width="286" height="16" rx="8" fill="#6C756F"/>
+  <rect x="178" y="350" width="244" height="16" rx="8" fill="#6C756F"/>
+  <rect x="178" y="408" width="114" height="42" rx="8" fill="#E85D4F"/>
+  <rect x="310" y="408" width="114" height="42" rx="8" fill="#F0B849"/>
+  <rect x="548" y="236" width="232" height="132" rx="18" fill="#D8EFE3"/>
+  <path d="M584 324C616 286 644 304 676 272C702 246 728 252 748 272" stroke="#2D7660" stroke-width="12" stroke-linecap="round"/>
+  <rect x="812" y="236" width="242" height="132" rx="18" fill="#FFE6DF"/>
+  <rect x="846" y="270" width="82" height="64" rx="12" fill="#E85D4F"/>
+  <rect x="948" y="270" width="72" height="18" rx="9" fill="#16201D"/>
+  <rect x="948" y="306" width="58" height="18" rx="9" fill="#6C756F"/>
+  <rect x="548" y="404" width="506" height="128" rx="18" fill="#FEF1C8"/>
+  <rect x="586" y="442" width="98" height="54" rx="12" fill="#16201D"/>
+  <rect x="716" y="442" width="298" height="14" rx="7" fill="#16201D"/>
+  <rect x="716" y="474" width="242" height="14" rx="7" fill="#6C756F"/>
+  <rect x="146" y="570" width="908" height="58" rx="16" fill="#23312C"/>
+  <rect x="180" y="592" width="174" height="14" rx="7" fill="#D8EFE3"/>
+  <rect x="394" y="592" width="256" height="14" rx="7" fill="#FEF1C8"/>
+  <rect x="690" y="592" width="318" height="14" rx="7" fill="#FFE6DF"/>
+</svg>
