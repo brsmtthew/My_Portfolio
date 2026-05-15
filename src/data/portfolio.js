@@ -16,10 +16,9 @@ export const profile = {
 export const navItems = [
   { label: "Home", href: "#home" },
   { label: "About", href: "#about" },
-  { label: "Services", href: "#services" },
+  { label: "Projects", href: "#work" },
   { label: "Skills", href: "#skills" },
-  { label: "Work", href: "#work" },
-  { label: "History", href: "#history" },
+  { label: "Experience", href: "#history" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -46,33 +45,6 @@ export const heroCapabilities = [
   "Dashboards",
   "Workflow systems",
   "API bridges",
-];
-
-export const services = [
-  {
-    eyebrow: "Product Design",
-    title: "Portfolio and Landing Pages",
-    description:
-      "Modern responsive pages that present your brand clearly, load fast, and guide visitors toward action.",
-  },
-  {
-    eyebrow: "Automation",
-    title: "AI Workflow Systems",
-    description:
-      "Practical automations for leads, reports, notifications, content workflows, and repetitive daily tasks.",
-  },
-  {
-    eyebrow: "Full Stack",
-    title: "Web App Development",
-    description:
-      "Interactive dashboards, forms, and tools built around real workflows, clean data, and smooth user experience.",
-  },
-  {
-    eyebrow: "Integration",
-    title: "API and Toolchain Bridges",
-    description:
-      "Reliable connections between CRMs, databases, spreadsheets, AI tools, email platforms, and internal systems.",
-  },
 ];
 
 export const stack = [
@@ -163,5 +135,5 @@ export const socialLinks = [
 ];
 
 export const footerNavItems = navItems.filter(({ label }) =>
-  ["About", "Services", "Skills", "Work", "History", "Contact"].includes(label),
+  ["About", "Projects", "Skills", "Experience", "Contact"].includes(label),
 );

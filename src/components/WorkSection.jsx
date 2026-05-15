@@ -6,9 +6,9 @@ export function WorkSection({ projects }) {
       <div className="shell">
         <div className="work-heading">
           <h2 className="impact section-title" id="work-title">
-            Work
+            Projects
           </h2>
-          <p>Selected systems with clear workflows, polished interfaces, and reliable data movement.</p>
+          <p>Hologram project previews with clear workflows, polished interfaces, and reliable data movement.</p>
         </div>
 
         <div className="project-list">

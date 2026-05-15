@@ -41,42 +41,15 @@ for (const viewport of viewports) {
   const metrics = await page.evaluate(() => {
     const portrait = document.querySelector(".portrait-stage");
     const image = document.querySelector(".portrait-stage img");
-    const canvases = [...document.querySelectorAll(".three-scene canvas")];
     const rect = portrait.getBoundingClientRect();
-    const canvasHasPixels = (canvas) => {
-      const gl = canvas.getContext("webgl2") ?? canvas.getContext("webgl");
-      if (!gl || canvas.width === 0 || canvas.height === 0) return false;
-
-      const points = [
-        [0.5, 0.5],
-        [0.38, 0.5],
-        [0.62, 0.5],
-        [0.5, 0.35],
-        [0.5, 0.65],
-      ];
-
-      return points.some(([x, y]) => {
-        const pixel = new Uint8Array(4);
-        gl.readPixels(
-          Math.floor(canvas.width * x),
-          Math.floor(canvas.height * y),
-          1,
-          1,
-          gl.RGBA,
-          gl.UNSIGNED_BYTE,
-          pixel,
-        );
-        return pixel[3] > 0 && (pixel[0] > 8 || pixel[1] > 8 || pixel[2] > 8);
-      });
-    };
+    const backdrop = document.querySelector(".live-backdrop");
+    const backdropStyle = backdrop ? getComputedStyle(backdrop) : null;
 
     return {
       portraitWidth: Math.round(rect.width),
       portraitHeight: Math.round(rect.height),
       imageLoaded: image.complete && image.naturalWidth > 0,
-      canvasCount: canvases.length,
-      canvasReady: canvases.every((canvas) => canvas.width > 0 && canvas.height > 0),
-      canvasPixels: canvases.every(canvasHasPixels),
+      backdropReady: Boolean(backdropStyle && backdropStyle.backgroundImage !== "none"),
       scrollWidth: document.documentElement.scrollWidth,
       clientWidth: document.documentElement.clientWidth,
       title: document.title,
@@ -99,12 +72,9 @@ for (const viewport of viewports) {
 for (const result of results) {
   const overflow = result.scrollWidth > result.clientWidth + 1 ? "overflow" : "no-overflow";
   const portrait = result.imageLoaded ? "portrait-loaded" : "portrait-missing";
-  const canvas =
-    result.canvasReady && result.canvasPixels
-      ? `${result.canvasCount}-canvas-painted`
-      : "canvas-missing";
+  const backdrop = result.backdropReady ? "css-backdrop-ready" : "backdrop-missing";
   console.log(
-    `${result.viewport}: ${overflow}, ${portrait}, ${canvas}, ${result.portraitWidth}x${result.portraitHeight}, title="${result.title}"`,
+    `${result.viewport}: ${overflow}, ${portrait}, ${backdrop}, ${result.portraitWidth}x${result.portraitHeight}, title="${result.title}"`,
   );
 }
 
@@ -114,9 +84,7 @@ const failures = results.filter(
     result.portraitWidth < 240 ||
     result.portraitHeight < 250 ||
     !result.imageLoaded ||
-    result.canvasCount < 2 ||
-    !result.canvasReady ||
-    !result.canvasPixels,
+    !result.backdropReady,
 );
 
 if (failures.length > 0) {

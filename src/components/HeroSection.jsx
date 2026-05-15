@@ -1,6 +1,5 @@
 import React from "react";
 import portraitImage from "../assets/image1.jpg";
-import { ThreeSystemScene } from "./ThreeSystemScene";
 
 export function HeroSection({
   profile,
@@ -53,14 +52,7 @@ export function HeroSection({
           </div>
 
           <div className="hero-visual">
-            <ThreeSystemScene variant="hero" label="3D orbiting interface model" />
-            <div className="hero-orbit hero-orbit-one" aria-hidden="true"></div>
-            <div className="hero-orbit hero-orbit-two" aria-hidden="true"></div>
-            <div className="hero-cube hero-cube-one" aria-hidden="true"></div>
-            <div className="hero-cube hero-cube-two" aria-hidden="true"></div>
             <figure className="portrait-stage" aria-label="Portrait of Boris Matthew Dairo">
-              <div className="portrait-depth portrait-depth-back" aria-hidden="true"></div>
-              <div className="portrait-depth portrait-depth-mid" aria-hidden="true"></div>
               <div className="portrait-frame">
                 <img
                   src={portraitImage}
@@ -72,21 +64,27 @@ export function HeroSection({
                 <div className="portrait-sheen" aria-hidden="true"></div>
               </div>
             </figure>
-            <div className="hero-badge hero-badge-design">
+            <div className="hero-holograms" aria-hidden="true">
+              <div className="hero-hologram-card hero-hologram-card-one">
+                <strong>01</strong>
+                <span>Interface</span>
+              </div>
+              <div className="hero-hologram-card hero-hologram-card-two">
+                <strong>02</strong>
+                <span>Automation</span>
+              </div>
+              <div className="hero-hologram-card hero-hologram-card-three">
+                <strong>03</strong>
+                <span>API Bridge</span>
+              </div>
+              <div className="hero-hologram-card hero-hologram-card-four">
+                <strong>04</strong>
+                <span>Launch</span>
+              </div>
+            </div>
+            <div className="hero-status-card">
               <strong>AI Systems</strong>
-              <span>Automation ready</span>
-            </div>
-            <div className="hero-badge hero-badge-stack">
-              <strong>UI UX</strong>
-              <span>React interfaces</span>
-            </div>
-            <div className="hero-badge hero-badge-code">
-              <strong>3D Web</strong>
-              <span>Glass interface</span>
-            </div>
-            <div className="hero-badge hero-badge-build">
-              <strong>Clean Builds</strong>
-              <span>Launch focused</span>
+              <span>Clean automation, full-stack interfaces, and launch-ready systems.</span>
             </div>
           </div>
 

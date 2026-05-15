@@ -5,7 +5,6 @@ import { Footer } from "./components/Footer";
 import { Header } from "./components/Header";
 import { HeroSection } from "./components/HeroSection";
 import { HistorySection } from "./components/HistorySection";
-import { ServicesSection } from "./components/ServicesSection";
 import { StackSection } from "./components/StackSection";
 import { WorkSection } from "./components/WorkSection";
 import {
@@ -20,7 +19,6 @@ import {
   navItems,
   profile,
   projects,
-  services,
   socialLinks,
 } from "./data/portfolio";
 
@@ -44,8 +42,22 @@ function App() {
   }, []);
 
   useEffect(() => {
+    const desktopQuery = window.matchMedia("(min-width: 1100px)");
+    const closeDesktopMenu = () => {
+      if (desktopQuery.matches) {
+        setMenuOpen(false);
+      }
+    };
+
+    closeDesktopMenu();
+    desktopQuery.addEventListener("change", closeDesktopMenu);
+
+    return () => desktopQuery.removeEventListener("change", closeDesktopMenu);
+  }, []);
+
+  useEffect(() => {
     const revealItems = document.querySelectorAll(
-      ".section .shell, .contact-shell, .service-card, .project-row, .history-visual, .timeline-row",
+      ".section .shell, .contact-shell, .project-row, .timeline-row",
     );
 
     if (!("IntersectionObserver" in window)) {
@@ -129,15 +141,8 @@ function App() {
     const prefersReducedMotion = window.matchMedia(
       "(prefers-reduced-motion: reduce)",
     ).matches;
-    const scrollTarget =
-      href === "#contact" ? document.querySelector(".contact-panel") ?? target : target;
-    const targetRect = scrollTarget.getBoundingClientRect();
-    const visibleHeight = window.innerHeight - headerHeight;
-    const centeredOffset =
-      href === "#contact"
-        ? headerHeight + Math.max((visibleHeight - targetRect.height) / 2, 18)
-        : headerHeight;
-    const top = Math.max(targetRect.top + window.scrollY - centeredOffset, 0);
+    const targetRect = target.getBoundingClientRect();
+    const top = Math.max(targetRect.top + window.scrollY - headerHeight - 18, 0);
 
     window.history.pushState(null, "", href);
     window.scrollTo({
@@ -148,6 +153,7 @@ function App() {
 
   return (
     <>
+      <div className="live-backdrop" aria-hidden="true"></div>
       <Header
         profile={profile}
         navItems={navItems}
@@ -165,9 +171,8 @@ function App() {
           onNavClick={handleNavClick}
         />
         <AboutSection metrics={metrics} />
-        <ServicesSection services={services} />
-        <StackSection coreStack={coreStack} carouselStack={carouselStack} />
         <WorkSection projects={projects} />
+        <StackSection coreStack={coreStack} carouselStack={carouselStack} />
         <HistorySection history={history} />
         <ContactSection
           profile={profile}

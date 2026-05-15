@@ -4,7 +4,12 @@ export function Header({ profile, navItems, menuOpen, onMenuToggle, onNavClick }
   return (
     <header className="site-header">
       <nav className="nav shell" aria-label="Main navigation">
-        <a className="brand" href="#home" aria-label={`${profile.name} home`}>
+        <a
+          className="brand"
+          href="#home"
+          aria-label={`${profile.name} home`}
+          onClick={(event) => onNavClick(event, "#home")}
+        >
           <span className="brand-word">{profile.name}</span>
         </a>
 
