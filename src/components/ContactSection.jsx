@@ -110,7 +110,6 @@ export function ContactSection({
                 </a>
               ))}
             </div>
-            <p>{profile.location}</p>
           </div>
         </div>
       </div>

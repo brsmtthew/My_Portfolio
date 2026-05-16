@@ -141,8 +141,10 @@ function App() {
     const prefersReducedMotion = window.matchMedia(
       "(prefers-reduced-motion: reduce)",
     ).matches;
-    const targetRect = target.getBoundingClientRect();
-    const top = Math.max(targetRect.top + window.scrollY - headerHeight - 18, 0);
+    const contentTarget =
+      target.querySelector(":scope > .shell, :scope > .contact-shell") ?? target;
+    const targetRect = contentTarget.getBoundingClientRect();
+    const top = Math.max(targetRect.top + window.scrollY - headerHeight - 34, 0);
 
     window.history.pushState(null, "", href);
     window.scrollTo({

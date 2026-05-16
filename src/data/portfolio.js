@@ -2,7 +2,6 @@ export const profile = {
   name: "Boris Matthew Dairo",
   mark: "BD",
   role: "Full Stack and AI Automation",
-  location: "Davao Core Node PH",
   email: "hello@example.com",
   summary:
     "I design full stack web systems, AI automations, and polished interfaces that help teams remove manual work, move faster, and ship with confidence.",
